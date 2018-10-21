@@ -28,13 +28,9 @@ if theme not in THEMES:
 hilite = HtmlFormatter().get_style_defs(".codehilite")
 style = """
 /* No background color of .codehilite */
-.codehilite {
-  background: transparent;
-}
+.codehilite { background: transparent; }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html, body, section {
   width: 100%;
@@ -55,34 +51,31 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 95%;
-}
+img { max-width: 95%; }
 
-h1, h2, h3, h4, h5, h6, p, ul > li {
+h1, h2, h3, h4, h5, h6 {
   width: 100%;
-  font-weight: 400;
   font-family: Consolas, monospace;
 }
 
+p, ul > li { font-family: Verdana, Geneva, sans-serif; }
+
 h1, h2, h3, h4, h5, h6, p {
-  font-size: 8em;
+  margin-bottom: 0;
   text-align: center;
 }
 
-ul > li {
-  font-size: 5rem;
+h1 { font-size: 6em; }
+h2, h3 { font-size: 4em; }
+p { font-size: 2em; }
+
+h1::before {
+  color: #999;
+  font-weight: 400;
+  content: "./";
 }
 
-h1 {
-  font-weight: bold;
-  font-size: 10em;
-}
-  h1::before {
-    color: #999;
-    font-weight: 400;
-    content: "./";
-  }
+ul > li { font-size: 5rem; }
 
 blockquote p { font-style: italic; }
   blockquote p::before,
@@ -112,21 +105,6 @@ table {
   th, td {
     padding: .2em;
   }
-
-/* Exports PDF. */
-@media print {
-  @page {
-    size: A4 landscape;
-  }
-
-  section {
-    display: flex !important;
-    page-break-after: always !important;
-  }
-    section:last-of-type {
-      page-break-after: avoid !important;
-    }
-}
 """
 
 script = """
@@ -197,20 +175,24 @@ template = """
 </html>
 """
 
-bgimg_rule = (
-    f"""
-background: url({img}) no-repeat center center fixed;
-background-size: cover;
-"""
-    if img
-    else ""
-)
+bgimg_rule = f"background: url({img}) no-repeat center center" if img else ""
 
 theme_block = f"""
 section {{
+  {bgimg_rule};
+  background-size: 100%;
   color: {"#000" if theme == "white" else "#fff"};
   background-color: {"#fff" if theme == "white" else "#000"};
-  {bgimg_rule}
+}}
+
+@media print {{
+  @page {{ size: A3 landscape; }}
+
+  section {{
+    display: flex;
+    page-break-after: always;
+    page-break-inside: avoid;
+  }}
 }}
 """
 
