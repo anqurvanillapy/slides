@@ -8,12 +8,24 @@ from markdown import markdown
 from pygments.formatters import HtmlFormatter
 
 
-if len(sys.argv) > 2:
-    print("Usage: md2html [IMAGE]", file=sys.stderr)
+def error():
+    print("Usage: md2html [white|black] [IMG_FILENAME]", file=sys.stderr)
     sys.exit(1)
 
-hilite = HtmlFormatter().get_style_defs(".codehilite")
 
+if len(sys.argv) > 3:
+    error()
+
+THEMES = ("white", "black")
+
+args = iter(sys.argv[1:])
+theme = next(args, "white")
+img = next(args, None)
+
+if theme not in THEMES:
+    error()
+
+hilite = HtmlFormatter().get_style_defs(".codehilite")
 style = """
 /* No background color of .codehilite */
 .codehilite {
@@ -176,12 +188,30 @@ template = """
   <title>{title}</title>
   <style>{hilite}</style>
   <style>{style}</style>
+  <style>{theme_block}</style>
 </head>
 <body>
 {content}
 <script>{script}</script>
 </body>
 </html>
+"""
+
+bgimg_rule = (
+    f"""
+background: url({img}) no-repeat center center fixed;
+background-size: cover;
+"""
+    if img
+    else ""
+)
+
+theme_block = f"""
+section {{
+  color: {"#000" if theme == "white" else "#fff"};
+  background-color: {"#fff" if theme == "white" else "#000"};
+  {bgimg_rule}
+}}
 """
 
 md_exts = [
@@ -204,6 +234,7 @@ print(
         title=title,
         hilite=css_minify(hilite),
         style=css_minify(style),
+        theme_block=css_minify(theme_block),
         script=script,
         content=content,
     )

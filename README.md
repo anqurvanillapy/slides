@@ -9,10 +9,10 @@
 A Markdown to PDF-printable HTML slideshow generator.
 
 ```bash
-# Basic theme.
+# Basic with a white theme.
 $ md2html pre.md
-# Additional style, e.g. custom theme for header and footer.
-$ md2html pre.md -s style.css
+# Or an other theme with a background image.
+$ md2html black bg.png < pre.md > pre.html
 ```
 
 ## License
