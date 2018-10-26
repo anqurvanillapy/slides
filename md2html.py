@@ -65,17 +65,29 @@ h1, h2, h3, h4, h5, h6, p {
   text-align: center;
 }
 
-h1 { font-size: 6em; }
-h2, h3 { font-size: 4em; }
-p { font-size: 2em; }
+section > h1:first-child,
+section > h2:first-child,
+section > h3:first-child,
+section > h4:first-child,
+section > h5:first-child,
+section > h6:first-child,
+section > p:first-child,
+section > pre:first-child {
+  margin-top: 0;
+}
 
-h1::before {
+h6 { font-size: 8rem; }
+h1 { font-size: 6rem; }
+h2, h3 { font-size: 4rem; }
+p { font-size: 3rem; }
+
+h6::before {
   color: #999;
   font-weight: 400;
   content: "./";
 }
 
-ul > li { font-size: 5rem; }
+ul > li { font-size: 4rem; }
 
 blockquote p { font-style: italic; }
   blockquote p::before,
@@ -85,7 +97,7 @@ blockquote p { font-style: italic; }
   }
 
 code {
-  font-family: Courier, monospace;
+  font-family: Consolas, monospace;
 }
   code::before,
   code::after {
@@ -94,16 +106,17 @@ code {
   }
 
 pre {
-  font-size: 3em;
+  font-size: 4rem;
+  font-family: Consolas, monospace;
 }
 
 table {
   font-family: Consolas, monospace;
-  font-size: 3em;
+  font-size: 3rem;
   text-align: center;
 }
   th, td {
-    padding: .2em;
+    padding: .2rem;
   }
 """
 
