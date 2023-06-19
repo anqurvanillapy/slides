@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/anqurvanillapy/slides#readme",
   "dependencies": {
-    "http-server": "^14.0.0",
-    "reveal.js": "^4.2.0"
+    "http-server": "^14.1.1",
+    "reveal.js": "^4.5.0"
   }
 }
