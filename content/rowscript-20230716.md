@@ -249,6 +249,7 @@ C with much sugar 🍬
   * [Abstracting extensible data types], 2019
   * 又叫做 concatenation-based row polymorphism <!-- .element: class="fragment" -->
   * 和 PureScript, OCaml 的实现完全不同 <!-- .element: class="fragment" -->
+  * 扩展了论文, 实现了 DT + row poly 的结合 <!-- .element: class="fragment" -->
 
 [Abstracting extensible data types]: https://dl.acm.org/doi/10.1145/3290325
 
