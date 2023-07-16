@@ -363,8 +363,10 @@ DT 为了用户用得舒服, 并不简单...
 
 * 绝世经典 [elaboration-zoo]
 * 看 RowScript 实现也行 <!-- .element: class="fragment" -->
+* [Aya Prover] 有超级多美妙的语言特性实现 <!-- .element: class="fragment" -->
 
 [elaboration-zoo]: https://github.com/AndrasKovacs/elaboration-zoo
+[Aya Prover]: https://github.com/aya-prover/aya-dev
 
 ---
 
