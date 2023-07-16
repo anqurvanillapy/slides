@@ -133,12 +133,13 @@ C with much sugar 🍬
 
 工业界里各种古老的技术...
 
-* 宏, 过程宏 (卫生宏)
+* 宏, 过程宏 (卫生宏) <!-- .element: class="fragment" -->
   * 插件和 IDE 直接傻眼 <!-- .element: class="fragment" -->
   * 将 parser 复杂化 <!-- .element: class="fragment" -->
-* 基于 DSL/AST/目标代码 的代码生成
+* 基于 DSL/AST/目标代码 的代码生成 <!-- .element: class="fragment" -->
   * 依赖构建环境 <!-- .element: class="fragment" -->
   * 生成的代码通常没法引用原始数据 <!-- .element: class="fragment" -->
+  * 忘了生成就尴尬了 <!-- .element: class="fragment" -->
 
 --
 
@@ -184,7 +185,7 @@ C with much sugar 🍬
 
 * Parsing 的生态非常的混乱 <!-- .element: class="fragment" -->
   * VSCode 和 GitHub: TextMate <!-- .element: class="fragment" -->
-  * IntelliJ: Bison 和 Flex <!-- .element: class="fragment" -->
+  * IntelliJ: EBNF 和 Flex <!-- .element: class="fragment" -->
   * 自己写玩具: "诶小亮给他整个 parsec 儿" <!-- .element: class="fragment" -->
 * 降低用户心智 <!-- .element: class="fragment" -->
   * 不过 template 能降低学习成本 <!-- .element: class="fragment" -->
